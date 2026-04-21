@@ -1,1475 +1,267 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ContractorServe - Serving Those Who Serve Us</title>
-  <meta name="description" content="We help contractor businesses become turnkey — so you can sell for what they're truly worth and pass your legacy to the next generation.">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --navy: #1B2A4A;
-      --navy-light: #243556;
-      --gold: #C8922A;
-      --gold-light: #D4A84A;
-      --cream: #FAF8F5;
-      --warm-white: #FDFCFA;
-      --stone: #E8E4DD;
-      --text: #374151;
-      --text-light: #6B7280;
-      --white: #FFFFFF;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'DM Sans', 'Segoe UI', sans-serif;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      background: var(--warm-white);
-      min-height: 100vh;
-    }
-
-    .heading {
-      font-family: 'Playfair Display', Georgia, serif;
-    }
-
-    button {
-      cursor: pointer;
-      transition: all 0.2s ease;
-      border: none;
-      background: none;
-    }
-
-    button:hover {
-      opacity: 0.9;
-      transform: translateY(-1px);
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .page { display: none; }
-    .page.active { display: block; }
-
-    /* Navigation */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: var(--navy);
-      border-bottom: 2px solid var(--gold);
-      padding: 0 24px;
-    }
-
-    .nav-container {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: 64px;
-    }
-
-    .logo {
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .logo-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 6px;
-      background: var(--gold);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Playfair Display', Georgia, serif;
-      font-weight: 700;
-      font-size: 18px;
-      color: var(--navy);
-    }
-
-    .logo-text {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 16px;
-      font-weight: 700;
-      color: var(--white);
-      line-height: 1.1;
-    }
-
-    .logo-tagline {
-      font-size: 10px;
-      color: var(--gold);
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-    }
-
-    .nav-link {
-      background: transparent;
-      color: rgba(255,255,255,0.8);
-      font-size: 13px;
-      font-weight: 500;
-      padding: 7px 14px;
-      border-radius: 6px;
-      transition: all 0.2s;
-    }
-
-    .nav-link:hover, .nav-link.active {
-      background: rgba(200,146,42,0.15);
-      color: var(--gold);
-    }
-
-    .nav-link.assessment-link {
-      border: 1.5px solid var(--gold);
-    }
-
-    .nav-cta {
-      background: var(--gold);
-      color: var(--navy);
-      font-size: 13px;
-      font-weight: 700;
-      padding: 8px 18px;
-      border-radius: 6px;
-      margin-left: 8px;
-    }
-
-    /* Buttons */
-    .btn {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 15px;
-      font-weight: 700;
-      padding: 14px 32px;
-      border-radius: 8px;
-      letter-spacing: 0.5px;
-      display: inline-block;
-    }
-
-    .btn-gold {
-      background: var(--gold);
-      color: var(--navy);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--white);
-      border: 2px solid var(--gold);
-    }
-
-    .btn-navy {
-      background: var(--navy);
-      color: var(--white);
-    }
-
-    /* Hero Section */
-    .hero {
-      background: linear-gradient(135deg, var(--navy) 0%, #0F1A2E 100%);
-      padding: 80px 24px 72px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      opacity: 0.04;
-      background-image: radial-gradient(circle at 20% 50%, rgba(200,146,42,0.5) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 20%, rgba(200,146,42,0.3) 0%, transparent 40%);
-    }
-
-    .hero-content {
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
-      position: relative;
-    }
-
-    .hero-label {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--gold);
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin-bottom: 20px;
-    }
-
-    .hero h1 {
-      font-size: 44px;
-      font-weight: 700;
-      color: var(--white);
-      line-height: 1.15;
-      margin-bottom: 20px;
-    }
-
-    .hero h1 span {
-      color: var(--gold);
-    }
-
-    .hero p {
-      font-size: 18px;
-      color: rgba(255,255,255,0.7);
-      line-height: 1.6;
-      max-width: 600px;
-      margin: 0 auto 36px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    /* Sections */
-    section {
-      padding: 64px 24px;
-    }
-
-    .section-label {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--gold);
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-      text-align: center;
-    }
-
-    .section-title {
-      font-size: 32px;
-      font-weight: 700;
-      color: var(--navy);
-      text-align: center;
-      margin-bottom: 16px;
-    }
-
-    .section-subtitle {
-      font-size: 16px;
-      color: var(--text-light);
-      text-align: center;
-      max-width: 650px;
-      margin: 0 auto 40px;
-      line-height: 1.7;
-    }
-
-    /* Comparison Cards */
-    .comparison-container {
-      display: flex;
-      gap: 24px;
-      flex-wrap: wrap;
-      justify-content: center;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .comparison-card {
-      flex: 1 1 340px;
-      max-width: 420px;
-      background: var(--white);
-      border-radius: 12px;
-      overflow: hidden;
-    }
-
-    .comparison-card.without {
-      border: 1px solid #E5E7EB;
-    }
-
-    .comparison-card.with {
-      border: 2px solid var(--gold);
-      box-shadow: 0 4px 24px rgba(200,146,42,0.12);
-    }
-
-    .comparison-header {
-      padding: 14px 24px;
-      font-size: 13px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .comparison-card.without .comparison-header {
-      background: #DC2626;
-      color: var(--white);
-    }
-
-    .comparison-card.with .comparison-header {
-      background: var(--gold);
-      color: var(--navy);
-    }
-
-    .comparison-body {
-      padding: 24px;
-    }
-
-    .comparison-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 0;
-      border-bottom: 1px solid #F3F4F6;
-    }
-
-    .comparison-row:last-child {
-      border-bottom: none;
-    }
-
-    .comparison-label {
-      font-size: 14px;
-      color: var(--text);
-    }
-
-    .comparison-value {
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    .comparison-card.without .comparison-value {
-      color: #DC2626;
-    }
-
-    .comparison-card.with .comparison-value {
-      color: #16A34A;
-    }
-
-    /* Steps */
-    .steps-container {
-      display: flex;
-      gap: 24px;
-      flex-wrap: wrap;
-      justify-content: center;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .step-card {
-      flex: 1 1 250px;
-      max-width: 280px;
-      padding: 32px 24px;
-      border-radius: 12px;
-      border: 1px solid #E5E7EB;
-      background: var(--white);
-    }
-
-    .step-number {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 40px;
-      font-weight: 700;
-      color: var(--stone);
-      line-height: 1;
-      margin-bottom: 12px;
-    }
-
-    .step-accent {
-      width: 40px;
-      height: 3px;
-      background: var(--gold);
-      border-radius: 2px;
-      margin-bottom: 16px;
-    }
-
-    .step-title {
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 10px;
-    }
-
-    .step-desc {
-      font-size: 14px;
-      color: var(--text-light);
-      line-height: 1.6;
-    }
-
-    /* Origin Story */
-    .origin {
-      background: var(--cream);
-      border-top: 1px solid var(--stone);
-      border-bottom: 1px solid var(--stone);
-    }
-
-    .origin-content {
-      max-width: 700px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .origin-avatar {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      background: var(--navy);
-      margin: 0 auto 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 24px;
-      font-weight: 700;
-      color: var(--gold);
-    }
-
-    .origin h2 {
-      font-size: 28px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 20px;
-    }
-
-    .origin-quote {
-      font-size: 17px;
-      color: var(--text);
-      line-height: 1.8;
-      font-style: italic;
-    }
-
-    .origin-closing {
-      font-size: 16px;
-      color: var(--text);
-      line-height: 1.7;
-      margin-top: 16px;
-    }
-
-    /* CTA Section */
-    .cta-section {
-      background: linear-gradient(135deg, var(--navy) 0%, #0F1A2E 100%);
-      text-align: center;
-    }
-
-    .cta-content {
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .cta-section h2 {
-      font-size: 32px;
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 16px;
-    }
-
-    .cta-section p {
-      font-size: 16px;
-      color: rgba(255,255,255,0.6);
-      line-height: 1.6;
-      margin-bottom: 32px;
-    }
-
-    .cta-buttons {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    /* Footer */
-    footer {
-      background: var(--navy);
-      padding: 48px 24px 32px;
-      border-top: 2px solid var(--gold);
-      text-align: center;
-    }
-
-    .footer-logo {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 6px;
-    }
-
-    .footer-tagline {
-      font-size: 12px;
-      color: var(--gold);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 24px;
-    }
-
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: 32px;
-      flex-wrap: wrap;
-      margin-bottom: 32px;
-    }
-
-    .footer-link {
-      color: rgba(255,255,255,0.6);
-      font-size: 13px;
-      cursor: pointer;
-    }
-
-    .footer-link:hover {
-      color: var(--gold);
-    }
-
-    .footer-copyright {
-      font-size: 12px;
-      color: rgba(255,255,255,0.3);
-    }
-
-    /* About Page */
-    .about-hero {
-      background: linear-gradient(135deg, var(--navy) 0%, #0F1A2E 100%);
-      padding: 64px 24px;
-      text-align: center;
-    }
-
-    .about-hero-content {
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
-    .about-hero h1 {
-      font-size: 40px;
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 16px;
-    }
-
-    .about-hero p {
-      font-size: 17px;
-      color: rgba(255,255,255,0.7);
-      line-height: 1.7;
-    }
-
-    .about-content {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .about-columns {
-      display: flex;
-      gap: 40px;
-      flex-wrap: wrap;
-    }
-
-    .about-column {
-      flex: 1 1 340px;
-    }
-
-    .about-column h2 {
-      font-size: 26px;
-      color: var(--navy);
-      margin-bottom: 16px;
-    }
-
-    .about-column p {
-      font-size: 15px;
-      color: var(--text);
-      line-height: 1.7;
-      margin-bottom: 16px;
-    }
-
-    .about-model {
-      margin-top: 48px;
-      padding: 32px;
-      background: var(--white);
-      border-radius: 12px;
-      border: 1px solid var(--stone);
-      text-align: center;
-    }
-
-    .about-model h3 {
-      font-size: 22px;
-      color: var(--navy);
-      margin-bottom: 12px;
-    }
-
-    .about-model p {
-      font-size: 15px;
-      color: var(--text-light);
-      line-height: 1.7;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    /* Assessment Page */
-    .assessment-hero {
-      background: linear-gradient(135deg, var(--navy) 0%, #0F1A2E 100%);
-      padding: 48px 24px;
-      text-align: center;
-    }
-
-    .assessment-hero-content {
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .assessment-hero h1 {
-      font-size: 36px;
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 12px;
-    }
-
-    .assessment-hero p {
-      font-size: 16px;
-      color: rgba(255,255,255,0.6);
-      line-height: 1.6;
-    }
-
-    .assessment-container {
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .progress-bar {
-      margin-bottom: 32px;
-    }
-
-    .progress-header {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 8px;
-      font-size: 13px;
-      color: var(--text-light);
-    }
-
-    .progress-track {
-      height: 6px;
-      background: var(--stone);
-      border-radius: 3px;
-    }
-
-    .progress-fill {
-      height: 6px;
-      border-radius: 3px;
-      background: var(--gold);
-      transition: width 0.3s ease;
-    }
-
-    .question-title {
-      font-size: 24px;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 24px;
-    }
-
-    .options-container {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .option-btn {
-      background: var(--white);
-      border: 1.5px solid #E5E7EB;
-      border-radius: 10px;
-      padding: 16px 20px;
-      text-align: left;
-      font-size: 15px;
-      color: var(--text);
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      transition: all 0.2s;
-    }
-
-    .option-btn:hover {
-      border-color: var(--gold);
-    }
-
-    .option-letter {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      border: 2px solid var(--stone);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--text-light);
-      flex-shrink: 0;
-    }
-
-    /* Results */
-    .results-card {
-      background: var(--white);
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
-    }
-
-    .results-header {
-      padding: 20px 32px;
-      text-align: center;
-    }
-
-    .results-label {
-      font-size: 12px;
-      font-weight: 600;
-      color: rgba(255,255,255,0.8);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 4px;
-    }
-
-    .results-level {
-      font-size: 36px;
-      font-weight: 700;
-      color: var(--white);
-    }
-
-    .results-body {
-      padding: 32px;
-    }
-
-    .results-summary {
-      font-size: 18px;
-      font-weight: 600;
-      color: var(--navy);
-      margin-bottom: 12px;
-    }
-
-    .results-detail {
-      font-size: 15px;
-      color: var(--text);
-      line-height: 1.7;
-    }
-
-    .results-cta {
-      margin-top: 32px;
-      padding: 32px;
-      background: var(--white);
-      border-radius: 12px;
-      border: 1px solid var(--stone);
-      text-align: center;
-    }
-
-    .results-cta h3 {
-      font-size: 22px;
-      color: var(--navy);
-      margin-bottom: 12px;
-    }
-
-    .results-cta p {
-      font-size: 15px;
-      color: var(--text-light);
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-
-    .retake-link {
-      display: block;
-      margin-top: 16px;
-      font-size: 13px;
-      color: var(--gold);
-      cursor: pointer;
-      text-decoration: underline;
-    }
-
-    .book-call-section {
-      background: var(--white);
-      border-top: 1px solid var(--stone);
-    }
-
-    .book-call-content {
-      max-width: 500px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .book-call-content h3 {
-      font-size: 24px;
-      color: var(--navy);
-      margin-bottom: 12px;
-    }
-
-    .book-call-content p {
-      font-size: 15px;
-      color: var(--text-light);
-      line-height: 1.6;
-      margin-bottom: 24px;
-    }
-
-    /* Operators Page */
-    .operators-hero {
-      background: linear-gradient(135deg, var(--navy) 0%, #0F1A2E 100%);
-      padding: 64px 24px;
-      text-align: center;
-    }
-
-    .operators-hero-content {
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
-    .operators-hero h1 {
-      font-size: 40px;
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 16px;
-    }
-
-    .operators-hero h1 span {
-      color: var(--gold);
-    }
-
-    .operators-hero p {
-      font-size: 17px;
-      color: rgba(255,255,255,0.7);
-      line-height: 1.7;
-    }
-
-    .operators-content {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .operators-content > h2 {
-      font-size: 28px;
-      color: var(--navy);
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    .benefits-grid {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .benefit-card {
-      flex: 1 1 200px;
-      max-width: 220px;
-      background: var(--white);
-      border-radius: 12px;
-      padding: 28px 20px;
-      border: 1px solid #E5E7EB;
-      text-align: center;
-    }
-
-    .benefit-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      background: rgba(200,146,42,0.13);
-      margin: 0 auto 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 22px;
-      color: var(--gold);
-    }
-
-    .benefit-title {
-      font-size: 17px;
-      color: var(--navy);
-      margin-bottom: 8px;
-    }
-
-    .benefit-desc {
-      font-size: 13px;
-      color: var(--text-light);
-      line-height: 1.6;
-    }
-
-    .who-looking {
-      margin-top: 48px;
-      padding: 32px;
-      background: var(--white);
-      border-radius: 12px;
-      border: 1px solid var(--stone);
-    }
-
-    .who-looking h3 {
-      font-size: 22px;
-      color: var(--navy);
-      margin-bottom: 16px;
-    }
-
-    .who-looking p {
-      font-size: 15px;
-      color: var(--text);
-      line-height: 1.8;
-      margin-bottom: 8px;
-    }
-
-    .operators-cta {
-      text-align: center;
-      margin-top: 40px;
-    }
-
-    /* Mobile Responsive */
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-      }
-
-      .hero h1 {
-        font-size: 32px;
-      }
-
-      .hero p {
-        font-size: 16px;
-      }
-
-      .section-title {
-        font-size: 26px;
-      }
-
-      .about-hero h1,
-      .operators-hero h1 {
-        font-size: 32px;
-      }
-
-      .comparison-card {
-        max-width: 100%;
-      }
-
-      .step-card {
-        max-width: 100%;
-      }
-
-      .benefit-card {
-        max-width: 100%;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>ContractorServe — Fractional ops for trades</title>
+<meta name="description" content="Most trades owners lose $8K–$15K a month to missed calls and slow follow-up. We find the leak, build the system that stops it, and run it every month.">
+<link rel="canonical" href="https://contractorserve.com/">
+
+<link rel="icon" type="image/svg+xml" href="/assets/logo-icon-gold.svg">
+<link rel="apple-touch-icon" href="/assets/logo-icon-gold.png">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="ContractorServe — Fractional ops for trades">
+<meta property="og:description" content="Most trades owners lose $8K–$15K a month to missed calls and slow follow-up. We find the leak, build the system that stops it, and run it every month.">
+<meta property="og:url" content="https://contractorserve.com/">
+<meta property="og:image" content="https://contractorserve.com/assets/og-default.png">
+<meta property="og:site_name" content="ContractorServe">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ContractorServe — Fractional ops for trades">
+<meta name="twitter:description" content="Most trades owners lose $8K–$15K a month to missed calls and slow follow-up. We find the leak, build the system that stops it, and run it every month.">
+<meta name="twitter:image" content="https://contractorserve.com/assets/og-default.png">
+
+<meta name="theme-color" content="#1B2A4A">
+
+<link rel="stylesheet" href="/colors_and_type.css">
+<link rel="stylesheet" href="/_shared.css">
+<style>
+  /* Homepage-specific styles (shared primitives live in _shared.css) */
+
+  .hero__grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1.35fr 1fr; gap: 64px; align-items: center; }
+  .hero h1 { font-family: var(--font-display); font-weight: 700; font-size: clamp(40px, 5.4vw, 68px); line-height: 1.05; letter-spacing: -0.02em; margin: 0 0 22px; text-wrap: balance; }
+  .hero p.lede { font-size: 19px; line-height: 1.6; color: rgba(255,255,255,0.82); margin: 0 0 32px; max-width: 560px; }
+  .hero__ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+  .hero__foot { margin-top: 26px; font-size: 13px; color: rgba(255,255,255,0.55); }
+
+  .auditcard { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 26px; }
+  .auditcard__label { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 16px; }
+  .auditcard__row { display: grid; gap: 16px; }
+  .auditcard__row + .auditcard__row { margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.08); }
+  .metric__lbl { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 4px; }
+  .metric__amt { font-family: var(--font-display); font-weight: 700; font-size: 50px; line-height: 1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+  .metric__sub { font-size: 13px; color: rgba(255,255,255,0.65); margin-top: 4px; }
+  .leak-fg { color: #F87171; }
+  .rec-fg { color: #4ADE80; }
+
+  .three { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .stepcard { background: #fff; border: 1px solid var(--cs-stone); border-radius: 12px; padding: 32px; transition: box-shadow 180ms ease; }
+  .stepcard:hover { box-shadow: 0 4px 12px rgba(27,42,74,0.08); }
+  .stepcard__num { font-family: var(--font-display); font-weight: 700; font-size: 13px; letter-spacing: 0.08em; color: var(--cs-gold); margin-bottom: 14px; }
+  .stepcard__title { font-family: var(--font-display); font-weight: 700; font-size: 22px; letter-spacing: -0.01em; color: var(--cs-navy); margin: 0 0 10px; }
+  .stepcard__desc { font-size: 15px; line-height: 1.6; color: var(--cs-text-dark); margin: 0; }
+
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .callout { background: #fff; border: 1px solid var(--cs-stone); border-radius: 12px; padding: 28px; display: flex; flex-direction: column; gap: 10px; }
+  .callout__tag { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 5px 10px; border-radius: 6px; width: fit-content; }
+  .callout__tag .dot { width: 6px; height: 6px; border-radius: 50%; }
+  .callout--leak .callout__tag { background: rgba(220,38,38,0.1); color: #DC2626; }
+  .callout--leak .callout__tag .dot { background: #DC2626; }
+  .callout--rec .callout__tag { background: rgba(22,163,74,0.1); color: #16A34A; }
+  .callout--rec .callout__tag .dot { background: #16A34A; }
+  .callout__lbl { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cs-text-light); }
+  .callout__amt { font-family: var(--font-display); font-weight: 700; font-size: 60px; line-height: 1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+  .callout--leak .callout__amt { color: #DC2626; }
+  .callout--rec .callout__amt { color: #16A34A; }
+  .callout__cause { font-size: 14px; color: var(--cs-text-dark); line-height: 1.5; }
+
+  .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1px solid var(--cs-stone); border-radius: 16px; overflow: hidden; background: #fff; }
+  .compare__col { padding: 32px; }
+  .compare__col--bad { background: var(--cs-cream); border-right: 1px solid var(--cs-stone); }
+  .compare__head { font-family: var(--font-display); font-weight: 700; font-size: 20px; letter-spacing: -0.01em; margin: 0 0 18px; display: flex; align-items: center; gap: 10px; }
+  .compare__head--bad { color: #DC2626; }
+  .compare__head--good { color: #16A34A; }
+  .compare__list { list-style: none; padding: 0; margin: 0; display: grid; gap: 14px; }
+  .compare__list li { display: flex; gap: 10px; align-items: flex-start; font-size: 15px; line-height: 1.5; }
+  .tick { flex-shrink: 0; width: 18px; height: 18px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; margin-top: 2px; }
+  .tick--bad { background: rgba(220,38,38,0.12); color: #DC2626; }
+  .tick--good { background: rgba(22,163,74,0.14); color: #16A34A; }
+
+  .proof { background: #fff; border: 1px solid var(--cs-stone); border-radius: 16px; padding: 40px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; }
+  .proof__quote { font-family: var(--font-display); font-weight: 700; font-size: 26px; line-height: 1.25; letter-spacing: -0.01em; color: var(--cs-navy); margin: 0 0 20px; text-wrap: balance; }
+  .proof__attr { font-size: 14px; color: var(--cs-text-light); }
+  .proof__attr strong { color: var(--cs-navy); font-weight: 600; display: block; font-size: 15px; margin-bottom: 2px; }
+  .proof__stats { display: grid; gap: 20px; padding-left: 40px; border-left: 1px solid var(--cs-stone); }
+  .proof__stat__lbl { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cs-text-light); margin-bottom: 4px; }
+  .proof__stat__val { font-family: var(--font-display); font-weight: 700; font-size: 32px; line-height: 1; letter-spacing: -0.02em; color: var(--cs-navy); font-variant-numeric: tabular-nums; }
+  .proof__stat__val.rec { color: #16A34A; }
+
+  .finalcta { text-align: center; }
+  .finalcta .sec-overline { text-align: center; }
+  .finalcta .sec-title { margin-left: auto; margin-right: auto; max-width: 780px; }
+  .finalcta .sec-sub { margin-left: auto; margin-right: auto; text-align: center; }
+  .finalcta__ctas { display: inline-flex; gap: 14px; }
+
+  @media (max-width: 900px) {
+    .hero__grid, .three, .two, .compare, .proof { grid-template-columns: 1fr; }
+    .proof__stats { padding-left: 0; border-left: none; border-top: 1px solid var(--cs-stone); padding-top: 24px; }
+    .compare__col--bad { border-right: none; border-bottom: 1px solid var(--cs-stone); }
+  }
+</style>
 </head>
 <body>
 
-  <!-- Navigation -->
-  <nav>
-    <div class="nav-container">
-      <div class="logo" onclick="navigateTo('home')">
-        <div class="logo-icon">CS</div>
+<div id="nav-slot"></div>
+
+<section class="hero" id="home">
+  <div class="hero__grid">
+    <div>
+      <div class="overline">Fractional ops for trades</div>
+      <h1>Stop being the bottleneck in your own business.</h1>
+      <p class="lede">Most trades owners lose $8K–$15K a month to missed calls and slow follow-up. We find the leak, build the system that stops it, and run it every month.</p>
+      <div class="hero__ctas">
+        <button class="btn btn--primary" onclick="book()">Book the Ops Audit <span style="font-size:18px;line-height:1">→</span></button>
+        <a class="btn btn--secondary-light" href="#leaks">See what an audit finds</a>
+      </div>
+      <div class="hero__foot">Paid audit · $1,500–$2,500 · Missouri-based · One week turnaround</div>
+    </div>
+
+    <div class="auditcard">
+      <div class="auditcard__label">Sample audit · plumbing contractor · $1.4M</div>
+      <div class="auditcard__row">
         <div>
-          <div class="logo-text">ContractorServe</div>
-          <div class="logo-tagline">Serving Those Who Serve Us</div>
+          <div class="metric__lbl leak-fg">Leaking per month</div>
+          <div class="metric__amt leak-fg">$8,400</div>
+          <div class="metric__sub">Missed calls + slow follow-up</div>
         </div>
       </div>
-      <div class="nav-links">
-        <button class="nav-link" data-page="home" onclick="navigateTo('home')">Home</button>
-        <button class="nav-link" data-page="about" onclick="navigateTo('about')">About</button>
-        <button class="nav-link assessment-link" data-page="assessment" onclick="navigateTo('assessment')">Free Assessment</button>
-        <button class="nav-link" data-page="operators" onclick="navigateTo('operators')">Operators</button>
-        <button class="nav-cta" onclick="navigateTo('assessment')">Book a Call</button>
+      <div class="auditcard__row">
+        <div>
+          <div class="metric__lbl rec-fg">Recovered month one</div>
+          <div class="metric__amt rec-fg">$8,400</div>
+          <div class="metric__sub">Automated follow-up + AI call response</div>
+        </div>
       </div>
     </div>
-  </nav>
-
-  <!-- HOME PAGE -->
-  <div id="page-home" class="page active">
-    <!-- Hero -->
-    <section class="hero">
-      <div class="hero-overlay"></div>
-      <div class="hero-content">
-        <div class="hero-label">The Silver Tsunami Is Here</div>
-        <h1 class="heading">
-          You Built Something<br>Worth More Than an<br><span>Asset Sale</span>
-        </h1>
-        <p>
-          You've spent decades building a business. Don't let it disappear when you walk away.
-          We help contractor businesses become turnkey — so you can sell for what they're truly worth
-          and pass your legacy to the next generation.
-        </p>
-        <div class="hero-buttons">
-          <button class="btn btn-gold" onclick="navigateTo('assessment')">Take the Free Assessment →</button>
-          <button class="btn btn-outline" onclick="navigateTo('about')">Learn How It Works</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Problem Section -->
-    <section style="background: var(--warm-white);">
-      <div class="section-label">The Problem</div>
-      <h2 class="section-title heading">Most Contractor Businesses Are Unsellable</h2>
-      <p class="section-subtitle">
-        The customers call your phone. The bids come from your experience.
-        The reputation is your name. When you leave, the business leaves with you.
-      </p>
-
-      <div class="comparison-container">
-        <!-- Without CS -->
-        <div class="comparison-card without">
-          <div class="comparison-header">Without ContractorServe</div>
-          <div class="comparison-body">
-            <div class="comparison-row">
-              <span class="comparison-label">Business Value</span>
-              <span class="comparison-value">Asset Sale Only</span>
-            </div>
-            <div class="comparison-row">
-              <span class="comparison-label">$200K SDE Business</span>
-              <span class="comparison-value">$50–100K</span>
-            </div>
-            <div class="comparison-row">
-              <span class="comparison-label">$500K SDE Business</span>
-              <span class="comparison-value">$100–200K</span>
-            </div>
-            <div class="comparison-row">
-              <span class="comparison-label">$1M SDE Business</span>
-              <span class="comparison-value">$300–500K</span>
-            </div>
-            <div class="comparison-row">
-              <span class="comparison-label">Legacy</span>
-              <span class="comparison-value">Disappears</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- With CS -->
-        <div class="comparison-card with">
-          <div class="comparison-header">With ContractorServe</div>
-          <div class="comparison-body">
-            <div class="comparison-row">
-              <span class="comparison-label">Business Value</span>
-              <span class="comparison-value">Going Concern</span>
-            </div>
-            <div class="comparison-row">
-              <span class="comparison-label">$200K SDE Business</span>
-              <span class="comparison-value">$500K+</span>
-            </div>
-            <div class="comparison-row">
-              <span class="comparison-label">$500K SDE Business</span>
-              <span class="comparison-value">$1.25M+</span>
-            </div>
-            <div class="comparison-row">
-              <span class="comparison-label">$1M SDE Business</span>
-              <span class="comparison-value">$3–3.5M+</span>
-            </div>
-            <div class="comparison-row">
-              <span class="comparison-label">Legacy</span>
-              <span class="comparison-value">Lives On</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- How It Works -->
-    <section style="background: var(--white);">
-      <div class="section-label">How It Works</div>
-      <h2 class="section-title heading">Three Steps to a Business Worth Selling</h2>
-
-      <div class="steps-container">
-        <div class="step-card">
-          <div class="step-number heading">01</div>
-          <div class="step-accent"></div>
-          <h3 class="step-title heading">Diagnose</h3>
-          <p class="step-desc">Take our free assessment to see exactly where your business stands — what's transferable and what's trapped in your head.</p>
-        </div>
-        <div class="step-card">
-          <div class="step-number heading">02</div>
-          <div class="step-accent"></div>
-          <h3 class="step-title heading">Systematize</h3>
-          <p class="step-desc">We spend 6 months building the systems, brand, and team structure that make your business run without you.</p>
-        </div>
-        <div class="step-card">
-          <div class="step-number heading">03</div>
-          <div class="step-accent"></div>
-          <h3 class="step-title heading">Transition</h3>
-          <p class="step-desc">Sell your business at full value to a qualified buyer, or let us help you find and install a next-generation operator.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Origin Story -->
-    <section class="origin">
-      <div class="origin-content">
-        <div class="origin-avatar heading">CS</div>
-        <h2 class="heading">Why This Matters to Me</h2>
-        <p class="origin-quote">
-          "My dad built a $3M contracting company from nothing. When it came time to step away,
-          there was no system, no brand beyond him, and no path to transfer what he'd built.
-          He settled for an asset sale. Decades of work, relationships, and reputation — reduced
-          to the value of trucks and equipment."
-        </p>
-        <p class="origin-closing">
-          ContractorServe exists so that never has to happen again.
-        </p>
-      </div>
-    </section>
-
-    <!-- Final CTA -->
-    <section class="cta-section">
-      <div class="cta-content">
-        <h2 class="heading">Find Out What Your Business Is Really Worth</h2>
-        <p>
-          Our free diagnostic assessment takes 5 minutes and shows you
-          exactly where you stand — and what you're leaving on the table.
-        </p>
-        <div class="cta-buttons">
-          <button class="btn btn-gold" onclick="navigateTo('assessment')">Take the Free Assessment →</button>
-          <button class="btn btn-outline" onclick="navigateTo('assessment')">Or Just Book a Call</button>
-        </div>
-      </div>
-    </section>
   </div>
+</section>
 
-  <!-- ABOUT PAGE -->
-  <div id="page-about" class="page">
-    <section class="about-hero">
-      <div class="about-hero-content">
-        <div class="section-label">About ContractorServe</div>
-        <h1 class="heading">Bridging Generations in the Trades</h1>
-        <p>
-          We sit at the intersection of two urgent needs: retiring contractors who need to transition
-          well, and hungry young operators who need a path into business ownership.
-        </p>
+<section class="sec sec--cream" id="how-it-works">
+  <div class="container">
+    <div class="sec-overline">How it works</div>
+    <h2 class="sec-title">We find it. We build it. We run it.</h2>
+    <p class="sec-sub">You don't learn anything new. You don't log into a dashboard. You stay on the job.</p>
+    <div class="three">
+      <div class="stepcard">
+        <div class="stepcard__num">01 · Find</div>
+        <h3 class="stepcard__title">We find the leak</h3>
+        <p class="stepcard__desc">The Paid Ops Audit. One week. We go through every call, estimate, and follow-up and name the dollar amount falling through the cracks.</p>
       </div>
-    </section>
-
-    <section style="background: var(--warm-white);">
-      <div class="about-content">
-        <div class="about-columns">
-          <div class="about-column">
-            <h2 class="heading">The Problem We Solve</h2>
-            <p>
-              A generation of baby boomer contractors is approaching retirement with businesses that
-              can't survive without them. Their operations, customer relationships, and expertise all
-              live inside their head. The result? Businesses that took decades to build get sold for
-              the value of their trucks — or simply close their doors.
-            </p>
-            <p>
-              Meanwhile, there's a generation of driven young people who want to run businesses but
-              face impossible barriers to entry. They have the work ethic, the leadership ability,
-              and the hunger — but no pathway.
-            </p>
-          </div>
-          <div class="about-column">
-            <h2 class="heading">How We're Different</h2>
-            <p>
-              We're not brokers. We don't list your business and wait. We come in, roll up our sleeves,
-              and spend six months turning your business into something that runs without you. We build
-              the SOPs, separate the brand from the owner, clean up the financials, and structure the team.
-            </p>
-            <p>
-              And because we understand the trades — we've owned contractor businesses ourselves — we
-              speak your language. No corporate consultants with clipboards. Just people who've been in
-              your boots and know what it takes.
-            </p>
-          </div>
-        </div>
-
-        <div class="about-model">
-          <h3 class="heading">Our Model</h3>
-          <p>
-            We consult to systematize your business → We earn your trust through results →
-            When you're ready to exit, we can acquire and install a trained next-generation
-            operator who carries your legacy forward. We buy and hold for the long haul —
-            no flipping, no gutting, no four-year exit timelines.
-          </p>
-        </div>
+      <div class="stepcard">
+        <div class="stepcard__num">02 · Build</div>
+        <h3 class="stepcard__title">We build the system</h3>
+        <p class="stepcard__desc">Automated follow-up. AI call response. Job tracking. Custom-built on the tools you already have. You don't learn anything new.</p>
       </div>
-    </section>
-
-    <section style="background: var(--white); text-align: center;">
-      <button class="btn btn-gold" onclick="navigateTo('assessment')">Take the Free Assessment →</button>
-    </section>
-  </div>
-
-  <!-- ASSESSMENT PAGE -->
-  <div id="page-assessment" class="page">
-    <section class="assessment-hero">
-      <div class="assessment-hero-content">
-        <div class="section-label">Free Diagnostic</div>
-        <h1 class="heading">Business Readiness Assessment</h1>
-        <p>
-          5 questions. 2 minutes. Find out if your business is ready to sell — or if
-          you're headed for an asset sale.
-        </p>
+      <div class="stepcard">
+        <div class="stepcard__num">03 · Run</div>
+        <h3 class="stepcard__title">We run it every month</h3>
+        <p class="stepcard__desc">Monthly retainer. We handle everything. You get a plain-English report: found, cost, built, recovered.</p>
       </div>
-    </section>
-
-    <section style="background: var(--warm-white);">
-      <div class="assessment-container">
-        <div id="assessment-questions">
-          <!-- Questions will be rendered here by JS -->
-        </div>
-        <div id="assessment-results" style="display: none;">
-          <!-- Results will be rendered here by JS -->
-        </div>
-      </div>
-    </section>
-
-    <section class="book-call-section">
-      <div class="book-call-content">
-        <h3 class="heading">Prefer to Just Talk?</h3>
-        <p>
-          Skip the assessment and book a call directly. We'll have an honest
-          conversation about where your business stands and what your options are.
-        </p>
-        <button class="btn btn-navy">Book a Call →</button>
-      </div>
-    </section>
-  </div>
-
-  <!-- OPERATORS PAGE -->
-  <div id="page-operators" class="page">
-    <section class="operators-hero">
-      <div class="operators-hero-content">
-        <div class="section-label">Next Generation</div>
-        <h1 class="heading">
-          Run a Business.<br>Build Equity.<br><span>Own Your Future.</span>
-        </h1>
-        <p>
-          We acquire proven service businesses and install driven operators to run them.
-          Think Chick-fil-A, but for the trades. Small buy-in. Strong income. A real path
-          to ownership through performance.
-        </p>
-      </div>
-    </section>
-
-    <section style="background: var(--warm-white);">
-      <div class="operators-content">
-        <h2 class="heading">How the Operator Model Works</h2>
-
-        <div class="benefits-grid">
-          <div class="benefit-card">
-            <div class="benefit-icon">→</div>
-            <h3 class="benefit-title heading">Small Buy-In</h3>
-            <p class="benefit-desc">Put skin in the game with a manageable upfront commitment — not hundreds of thousands in debt.</p>
-          </div>
-          <div class="benefit-card">
-            <div class="benefit-icon">$</div>
-            <h3 class="benefit-title heading">Strong Income</h3>
-            <p class="benefit-desc">Earn a competitive salary from day one running a proven, systematized business with existing customers.</p>
-          </div>
-          <div class="benefit-card">
-            <div class="benefit-icon">↑</div>
-            <h3 class="benefit-title heading">Vest Equity</h3>
-            <p class="benefit-desc">Build real ownership over time based on your performance. Hit your targets, grow your stake.</p>
-          </div>
-          <div class="benefit-card">
-            <div class="benefit-icon">★</div>
-            <h3 class="benefit-title heading">Full Support</h3>
-            <p class="benefit-desc">We handle the back office, strategy, and systems. You focus on leading the team and serving customers.</p>
-          </div>
-        </div>
-
-        <div class="who-looking">
-          <h3 class="heading">Who We're Looking For</h3>
-          <p>
-            You're 22–35 years old with a strong work ethic and a desire to lead — not just do the work,
-            but run the show. You might be a skilled tradesperson ready for more, a military veteran
-            looking for your next mission, or someone from outside the trades with raw leadership ability.
-          </p>
-          <p>
-            You don't need to have run a business before. You need to be coachable, hungry, and
-            mission-aligned. We'll teach you the rest.
-          </p>
-        </div>
-
-        <div class="operators-cta">
-          <button class="btn btn-gold" onclick="navigateTo('assessment')">Express Interest →</button>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- Footer -->
-  <footer>
-    <div class="footer-logo heading">ContractorServe</div>
-    <div class="footer-tagline">Serving Those Who Serve Us</div>
-    <div class="footer-links">
-      <span class="footer-link" onclick="navigateTo('home')">Home</span>
-      <span class="footer-link" onclick="navigateTo('about')">About</span>
-      <span class="footer-link" onclick="navigateTo('assessment')">Free Assessment</span>
-      <span class="footer-link" onclick="navigateTo('operators')">Operators</span>
     </div>
-    <div class="footer-copyright">© 2026 ContractorServe. All rights reserved.</div>
-  </footer>
+  </div>
+</section>
 
-  <script>
-    // Assessment questions data
-    const questions = [
-      {
-        question: "If you didn't show up for 30 days, would your business keep running?",
-        options: ["It would collapse", "It would struggle significantly", "It would mostly function", "It would run smoothly"]
-      },
-      {
-        question: "Are your key processes documented in writing?",
-        options: ["Nothing is written down", "A few things are documented", "Most processes are documented", "We have comprehensive SOPs"]
-      },
-      {
-        question: "Could a new owner step in and know exactly how to run your business?",
-        options: ["Absolutely not", "They'd figure some things out", "With some training, yes", "Yes, everything is transferable"]
-      },
-      {
-        question: "Is your business brand tied to your personal name and reputation?",
-        options: ["Completely — I am the brand", "Mostly, but we have some separate identity", "Somewhat — it's a mix", "No, the brand stands on its own"]
-      },
-      {
-        question: "Do you have a management team that could operate without you?",
-        options: ["No, I make all decisions", "I have a few key people but they depend on me", "I have capable managers for most areas", "Yes, a full team that runs day-to-day"]
-      }
-    ];
+<section class="sec" id="leaks">
+  <div class="container">
+    <div class="sec-overline">Where the money goes</div>
+    <h2 class="sec-title">Most contractors are leaking $8K–$15K a month.</h2>
+    <p class="sec-sub">We name the exact dollar amount in your first audit. Then we stop it.</p>
+    <div class="two">
+      <div class="callout callout--leak">
+        <div class="callout__tag"><span class="dot"></span>Leak</div>
+        <div class="callout__lbl">Leaking per month</div>
+        <div class="callout__amt">$8,400</div>
+        <div class="callout__cause">Missed calls and slow follow-up</div>
+      </div>
+      <div class="callout callout--rec">
+        <div class="callout__tag"><span class="dot"></span>Recovered</div>
+        <div class="callout__lbl">Recovered month one</div>
+        <div class="callout__amt">$8,400</div>
+        <div class="callout__cause">Automated follow-up + AI call response</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    let currentQuestion = 0;
-    let answers = {};
+<section class="sec sec--cream">
+  <div class="container">
+    <div class="sec-overline">Without vs with</div>
+    <h2 class="sec-title">Two ways to run a $1.4M contractor.</h2>
+    <p class="sec-sub">One of them is the way you're running it right now.</p>
+    <div class="compare">
+      <div class="compare__col compare__col--bad">
+        <h3 class="compare__head compare__head--bad">Without ContractorServe</h3>
+        <ul class="compare__list">
+          <li><span class="tick tick--bad">✕</span>Missed calls go to voicemail. Voicemail goes nowhere.</li>
+          <li><span class="tick tick--bad">✕</span>Estimates sent Tuesday, forgotten by Friday.</li>
+          <li><span class="tick tick--bad">✕</span>You're the bottleneck on every decision.</li>
+          <li><span class="tick tick--bad">✕</span>$8K–$15K a month falling through the cracks.</li>
+          <li><span class="tick tick--bad">✕</span>No one answers after 5pm. Jobs go to the next guy.</li>
+        </ul>
+      </div>
+      <div class="compare__col">
+        <h3 class="compare__head compare__head--good">With ContractorServe</h3>
+        <ul class="compare__list">
+          <li><span class="tick tick--good">✓</span>Every call answered. Every lead followed up same day.</li>
+          <li><span class="tick tick--good">✓</span>Estimates tracked. Cold ones warmed back up.</li>
+          <li><span class="tick tick--good">✓</span>You stay on the job. We run the back office.</li>
+          <li><span class="tick tick--good">✓</span>$8,400 recovered in month one.</li>
+          <li><span class="tick tick--good">✓</span>AI answers after hours. No more missed jobs.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-    // Navigation function
-    function navigateTo(pageId) {
-      // Hide all pages
-      document.querySelectorAll('.page').forEach(page => {
-        page.classList.remove('active');
-      });
-
-      // Show selected page
-      document.getElementById('page-' + pageId).classList.add('active');
-
-      // Update nav links
-      document.querySelectorAll('.nav-link').forEach(link => {
-        link.classList.remove('active');
-        if (link.dataset.page === pageId) {
-          link.classList.add('active');
-        }
-      });
-
-      // Reset assessment if navigating to it
-      if (pageId === 'assessment') {
-        currentQuestion = 0;
-        answers = {};
-        renderAssessment();
-      }
-
-      // Scroll to top
-      window.scrollTo(0, 0);
-    }
-
-    // Render assessment question
-    function renderAssessment() {
-      const questionsContainer = document.getElementById('assessment-questions');
-      const resultsContainer = document.getElementById('assessment-results');
-
-      if (currentQuestion < questions.length) {
-        questionsContainer.style.display = 'block';
-        resultsContainer.style.display = 'none';
-
-        const q = questions[currentQuestion];
-        const progress = (currentQuestion / questions.length) * 100;
-
-        questionsContainer.innerHTML = `
-          <div class="progress-bar">
-            <div class="progress-header">
-              <span>Question ${currentQuestion + 1} of ${questions.length}</span>
-              <span>${Math.round(progress)}%</span>
-            </div>
-            <div class="progress-track">
-              <div class="progress-fill" style="width: ${progress}%"></div>
-            </div>
-          </div>
-          <h2 class="question-title heading">${q.question}</h2>
-          <div class="options-container">
-            ${q.options.map((opt, i) => `
-              <button class="option-btn" onclick="selectAnswer(${i})">
-                <div class="option-letter">${String.fromCharCode(65 + i)}</div>
-                ${opt}
-              </button>
-            `).join('')}
-          </div>
-        `;
-      } else {
-        showResults();
-      }
-    }
-
-    // Handle answer selection
-    function selectAnswer(index) {
-      answers[currentQuestion] = index;
-      currentQuestion++;
-      renderAssessment();
-    }
-
-    // Calculate score and show results
-    function showResults() {
-      const questionsContainer = document.getElementById('assessment-questions');
-      const resultsContainer = document.getElementById('assessment-results');
-
-      questionsContainer.style.display = 'none';
-      resultsContainer.style.display = 'block';
-
-      // Calculate total score
-      let score = 0;
-      Object.values(answers).forEach(v => { score += v; });
-
-      // Determine result level
-      let result;
-      if (score <= 5) {
-        result = {
-          level: "Critical",
-          color: "#DC2626",
-          summary: "Your business is currently unsellable as a going concern.",
-          detail: "Right now, a buyer would only pay for your assets — trucks, equipment, maybe a customer list. The business value you've built over decades would evaporate the day you walk away. But this is fixable. With the right systems in place, we can change this dramatically."
-        };
-      } else if (score <= 10) {
-        result = {
-          level: "At Risk",
-          color: "#F59E0B",
-          summary: "Your business has some transferable value, but significant gaps remain.",
-          detail: "You've built something real, but too much of it still depends on you. A buyer would see risk and discount their offer heavily. Six months of focused systematization could double or triple your exit value."
-        };
-      } else if (score <= 15) {
-        result = {
-          level: "Promising",
-          color: "#2563EB",
-          summary: "You're ahead of most contractor businesses, but there's still room to grow.",
-          detail: "You've done more than most to make your business transferable. Some targeted work on documentation, brand separation, and management structure could push your valuation significantly higher."
-        };
-      } else {
-        result = {
-          level: "Strong",
-          color: "#16A34A",
-          summary: "Your business is in great shape for a transition.",
-          detail: "You've built a genuinely transferable business. Let's talk about maximizing your exit value and finding the right buyer or operator to carry your legacy forward."
-        };
-      }
-
-      resultsContainer.innerHTML = `
-        <div class="results-card" style="border: 2px solid ${result.color}">
-          <div class="results-header" style="background: ${result.color}">
-            <div class="results-label">Your Business Readiness</div>
-            <div class="results-level heading">${result.level}</div>
-          </div>
-          <div class="results-body">
-            <p class="results-summary">${result.summary}</p>
-            <p class="results-detail">${result.detail}</p>
-          </div>
+<section class="sec">
+  <div class="container">
+    <div class="sec-overline">Proof</div>
+    <h2 class="sec-title">Operator-to-operator. Not consultants.</h2>
+    <p class="sec-sub">We run our own trades business on the same systems we build for clients. Everything here is peer-to-peer.</p>
+    <div class="proof">
+      <div>
+        <p class="proof__quote">"They found $8,400 a month I didn't know I was losing. Month one, I was breaking even on the retainer. Month two it was pure upside."</p>
+        <div class="proof__attr">
+          <strong>Plumbing contractor · $1.4M revenue</strong>
+          6 employees · Mid-Missouri
         </div>
-
-        <div class="results-cta">
-          <h3 class="heading">Want to Talk About Your Results?</h3>
-          <p>
-            Book a free call and we'll walk through your specific situation,
-            what your business could be worth, and what it would take to get there.
-          </p>
-          <button class="btn btn-gold">Book a Free Call →</button>
-          <span class="retake-link" onclick="retakeAssessment()">Retake Assessment</span>
+        <div style="margin-top:18px"><a class="btn btn--secondary" href="/case-studies/mid-missouri-plumbing.html">Read the case study →</a></div>
+      </div>
+      <div class="proof__stats">
+        <div>
+          <div class="proof__stat__lbl">Found in first audit</div>
+          <div class="proof__stat__val rec">$8,400/mo</div>
         </div>
-      `;
-    }
+        <div>
+          <div class="proof__stat__lbl">Time to recovery</div>
+          <div class="proof__stat__val">4 weeks</div>
+        </div>
+        <div>
+          <div class="proof__stat__lbl">Hours the owner spends on it</div>
+          <div class="proof__stat__val">0</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    // Retake assessment
-    function retakeAssessment() {
-      currentQuestion = 0;
-      answers = {};
-      renderAssessment();
-    }
+<section class="sec sec--navy finalcta" id="book">
+  <div class="container">
+    <div class="sec-overline">The Ops Audit</div>
+    <h2 class="sec-title">You'd rather find $8,400 a month than keep losing it.</h2>
+    <p class="sec-sub">$1,500–$2,500, done in a week. You get a plain-English report: found, cost, built, recovered. No pitch deck.</p>
+    <div class="finalcta__ctas">
+      <button class="btn btn--primary" onclick="book()">Book the Ops Audit <span style="font-size:18px;line-height:1">→</span></button>
+    </div>
+  </div>
+</section>
 
-    // Initialize assessment on page load
-    document.addEventListener('DOMContentLoaded', function() {
-      renderAssessment();
-    });
-  </script>
+<div id="footer-slot"></div>
+
+<script src="/_chrome.js"></script>
+<script>renderChrome('home');</script>
 
 </body>
 </html>

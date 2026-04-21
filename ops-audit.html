@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>The Ops Audit — ContractorServe</title>
+<meta name="description" content="One week. Every leak in your business, named in dollars. $1,500–$2,500 flat. If we can't find at least $5,000/mo leaking, you don't pay.">
+<link rel="canonical" href="https://contractorserve.com/ops-audit.html">
+
+<link rel="icon" type="image/svg+xml" href="/assets/logo-icon-gold.svg">
+<link rel="apple-touch-icon" href="/assets/logo-icon-gold.png">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="The Ops Audit — ContractorServe">
+<meta property="og:description" content="One week. Every leak in your business, named in dollars. $1,500–$2,500 flat. If we can't find at least $5,000/mo leaking, you don't pay.">
+<meta property="og:url" content="https://contractorserve.com/ops-audit.html">
+<meta property="og:image" content="https://contractorserve.com/assets/og-default.png">
+<meta property="og:site_name" content="ContractorServe">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Ops Audit — ContractorServe">
+<meta name="twitter:description" content="One week. Every leak in your business, named in dollars. $1,500–$2,500 flat. If we can't find at least $5,000/mo leaking, you don't pay.">
+<meta name="twitter:image" content="https://contractorserve.com/assets/og-default.png">
+
+<meta name="theme-color" content="#1B2A4A">
+
+<link rel="stylesheet" href="/colors_and_type.css">
+<link rel="stylesheet" href="/_shared.css">
+<style>
+  .audit-hero__grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1.3fr 1fr; gap: 64px; align-items: center; }
+  .audit-hero h1 { font-family: var(--font-display); font-weight: 700; font-size: clamp(40px, 5.4vw, 64px); line-height: 1.05; letter-spacing: -0.02em; margin: 0 0 22px; color: #fff; text-wrap: balance; }
+  .audit-hero p.lede { font-size: 19px; line-height: 1.6; color: rgba(255,255,255,0.82); margin: 0 0 28px; max-width: 560px; }
+  .audit-hero__ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 18px; }
+  .audit-hero__meta { display: flex; gap: 24px; flex-wrap: wrap; font-size: 13px; color: rgba(255,255,255,0.6); }
+  .audit-hero__meta span { display: inline-flex; align-items: center; gap: 6px; }
+  .audit-hero__meta .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--cs-gold); }
+
+  .pricecard { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 32px; }
+  .pricecard__lbl { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 12px; }
+  .pricecard__amt { font-family: var(--font-display); font-weight: 700; font-size: 56px; line-height: 1; letter-spacing: -0.02em; color: var(--cs-gold); margin-bottom: 6px; }
+  .pricecard__sub { font-size: 14px; color: rgba(255,255,255,0.7); margin-bottom: 22px; }
+  .pricecard__list { list-style: none; padding: 0; margin: 0 0 24px; display: grid; gap: 12px; }
+  .pricecard__list li { font-size: 14px; color: rgba(255,255,255,0.85); display: flex; gap: 10px; align-items: flex-start; line-height: 1.5; }
+  .pricecard__list .check { color: var(--cs-gold); font-weight: 700; flex-shrink: 0; }
+  .pricecard__foot { font-size: 12px; color: rgba(255,255,255,0.55); padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.08); }
+
+  .whatgrid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .whatcard { background: #fff; border: 1px solid var(--cs-stone); border-radius: 12px; padding: 28px; }
+  .whatcard__num { font-family: var(--font-display); font-weight: 700; font-size: 13px; letter-spacing: 0.08em; color: var(--cs-gold); margin-bottom: 12px; }
+  .whatcard__title { font-family: var(--font-display); font-weight: 700; font-size: 20px; letter-spacing: -0.01em; color: var(--cs-navy); margin: 0 0 10px; }
+  .whatcard__desc { font-size: 15px; line-height: 1.6; color: var(--cs-text-dark); margin: 0 0 14px; }
+  .whatcard__find { font-size: 12px; color: var(--cs-text-light); font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding-top: 12px; border-top: 1px solid var(--cs-stone); }
+  .whatcard__find strong { color: var(--cs-danger); font-family: var(--font-display); font-variant-numeric: tabular-nums; }
+
+  .timeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; }
+  .timeline::before { content: ''; position: absolute; top: 18px; left: 0; right: 0; height: 2px; background: var(--cs-stone); z-index: 0; }
+  .tl { position: relative; z-index: 1; padding-right: 24px; }
+  .tl__dot { width: 38px; height: 38px; border-radius: 50%; background: var(--cs-navy); color: var(--cs-gold); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 700; font-size: 13px; margin-bottom: 16px; border: 3px solid var(--cs-cream); }
+  .tl__day { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cs-gold); margin-bottom: 8px; }
+  .tl__title { font-family: var(--font-display); font-weight: 700; font-size: 17px; color: var(--cs-navy); margin: 0 0 8px; letter-spacing: -0.01em; }
+  .tl__desc { font-size: 14px; line-height: 1.5; color: var(--cs-text-light); margin: 0; }
+
+  .deliv { background: var(--cs-navy); color: #fff; border-radius: 16px; padding: 40px; display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; align-items: center; }
+  .deliv h3 { font-family: var(--font-display); font-weight: 700; font-size: 28px; line-height: 1.15; letter-spacing: -0.02em; color: #fff; margin: 0 0 14px; }
+  .deliv p { font-size: 15px; line-height: 1.65; color: rgba(255,255,255,0.78); margin: 0 0 14px; }
+  .deliv__mock { background: #fff; border-radius: 10px; padding: 24px; color: var(--cs-text-dark); box-shadow: 0 20px 60px rgba(0,0,0,0.25); }
+  .deliv__mock h4 { font-family: var(--font-display); font-weight: 700; font-size: 15px; color: var(--cs-navy); margin: 0 0 16px; letter-spacing: 0; display: flex; justify-content: space-between; align-items: center; }
+  .deliv__mock h4 small { font-family: var(--font-body); font-weight: 500; font-size: 11px; color: var(--cs-text-light); text-transform: uppercase; letter-spacing: 0.1em; }
+  .deliv__row { display: grid; grid-template-columns: 1fr auto; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--cs-stone); font-size: 13px; }
+  .deliv__row:last-child { border-bottom: none; }
+  .deliv__row__label { color: var(--cs-text-light); }
+  .deliv__row__amt { font-family: var(--font-display); font-weight: 700; color: var(--cs-danger); font-variant-numeric: tabular-nums; }
+  .deliv__total { margin-top: 14px; padding-top: 14px; border-top: 2px solid var(--cs-navy); display: flex; justify-content: space-between; align-items: baseline; }
+  .deliv__total__lbl { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--cs-navy); }
+  .deliv__total__amt { font-family: var(--font-display); font-weight: 700; font-size: 28px; color: var(--cs-danger); font-variant-numeric: tabular-nums; }
+
+  .faq { display: grid; gap: 12px; }
+  .faq details { background: #fff; border: 1px solid var(--cs-stone); border-radius: 10px; padding: 18px 24px; transition: border-color 120ms ease; }
+  .faq details[open] { border-color: var(--cs-gold); }
+  .faq summary { font-family: var(--font-display); font-weight: 700; font-size: 17px; color: var(--cs-navy); letter-spacing: -0.01em; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: '+'; font-family: var(--font-display); color: var(--cs-gold); font-size: 24px; font-weight: 400; transition: transform 180ms ease; }
+  .faq details[open] summary::after { transform: rotate(45deg); }
+  .faq p { margin: 14px 0 0; font-size: 15px; line-height: 1.65; color: var(--cs-text-dark); }
+
+  .guarantee { background: var(--cs-cream); border: 1px solid var(--cs-stone); border-left: 4px solid var(--cs-gold); border-radius: 10px; padding: 24px 28px; display: flex; gap: 20px; align-items: center; }
+  .guarantee__icon { width: 44px; height: 44px; border-radius: 50%; background: var(--cs-gold); color: var(--cs-navy); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 700; font-size: 18px; flex-shrink: 0; }
+  .guarantee__text h4 { font-family: var(--font-display); font-weight: 700; font-size: 18px; color: var(--cs-navy); margin: 0 0 4px; letter-spacing: -0.01em; }
+  .guarantee__text p { font-size: 14px; color: var(--cs-text-dark); margin: 0; line-height: 1.5; }
+
+  @media (max-width: 900px) {
+    .audit-hero__grid, .whatgrid, .deliv { grid-template-columns: 1fr; }
+    .timeline { grid-template-columns: 1fr 1fr; gap: 32px 20px; }
+    .timeline::before { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div id="nav-slot"></div>
+
+<section class="hero audit-hero">
+  <div class="audit-hero__grid">
+    <div>
+      <div class="overline">The Ops Audit</div>
+      <h1>One week. Every leak in your business, named in dollars.</h1>
+      <p class="lede">We go through every call, estimate, and follow-up in your business. At the end, you get a plain-English report: this is what's leaking, this is what it costs you, this is what we'd build.</p>
+      <div class="audit-hero__ctas">
+        <button class="btn btn--primary" onclick="book()">Book the audit <span style="font-size:18px;line-height:1">→</span></button>
+        <a class="btn btn--ghost-light" href="#whats-in-it">See what's inside ↓</a>
+      </div>
+      <div class="audit-hero__meta">
+        <span><span class="dot"></span>1 week turnaround</span>
+        <span><span class="dot"></span>~3 hours of your time</span>
+        <span><span class="dot"></span>Missouri-based</span>
+      </div>
+    </div>
+
+    <div class="pricecard">
+      <div class="pricecard__lbl">Flat price</div>
+      <div class="pricecard__amt">$1,500–2,500</div>
+      <div class="pricecard__sub">Based on revenue band. Quoted before we start. No surprises.</div>
+      <ul class="pricecard__list">
+        <li><span class="check">✓</span>Leak diagnostic — every dollar you're losing per month</li>
+        <li><span class="check">✓</span>Root-cause for each leak (where, why, who)</li>
+        <li><span class="check">✓</span>Build proposal — exactly what we'd do, cost, and recovery</li>
+        <li><span class="check">✓</span>60-min walkthrough call</li>
+        <li><span class="check">✓</span>Yours to keep — hire us or don't</li>
+      </ul>
+      <div class="pricecard__foot">Retainer clients: audit fee credited to month one.</div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--cream" id="whats-in-it">
+  <div class="container">
+    <div class="sec-overline">What's inside</div>
+    <h2 class="sec-title">Four things we look at. In order.</h2>
+    <p class="sec-sub">Most leaks live in one of these four places. We find the exact dollar amount in each.</p>
+    <div class="whatgrid">
+      <div class="whatcard">
+        <div class="whatcard__num">01</div>
+        <h3 class="whatcard__title">Inbound calls</h3>
+        <p class="whatcard__desc">How many calls hit your phone. How many are answered. What happens to the ones that go to voicemail. What a booked call is worth.</p>
+        <div class="whatcard__find">Average find · <strong>$3,200/mo</strong></div>
+      </div>
+      <div class="whatcard">
+        <div class="whatcard__num">02</div>
+        <h3 class="whatcard__title">Estimate follow-up</h3>
+        <p class="whatcard__desc">How many estimates you send. How many go cold. How fast the winners close. What a 10-point close-rate lift would be worth to you this year.</p>
+        <div class="whatcard__find">Average find · <strong>$4,100/mo</strong></div>
+      </div>
+      <div class="whatcard">
+        <div class="whatcard__num">03</div>
+        <h3 class="whatcard__title">Job handoff</h3>
+        <p class="whatcard__desc">Where jobs sit in limbo between sold and scheduled. How often you redo scopes. What revenue is sitting in your truck right now waiting for you.</p>
+        <div class="whatcard__find">Average find · <strong>$1,800/mo</strong></div>
+      </div>
+      <div class="whatcard">
+        <div class="whatcard__num">04</div>
+        <h3 class="whatcard__title">Owner bottleneck</h3>
+        <p class="whatcard__desc">Every decision that has to go through you. Every task only you can do. What your hours are actually worth, and which ones shouldn't be yours anymore.</p>
+        <div class="whatcard__find">Average find · <strong>$2,900/mo</strong></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="container">
+    <div class="sec-overline">The week</div>
+    <h2 class="sec-title">From first call to leak report in seven days.</h2>
+    <p class="sec-sub">Here's exactly what happens. Your time commitment is about three hours total.</p>
+    <div class="timeline">
+      <div class="tl">
+        <div class="tl__dot">1</div>
+        <div class="tl__day">Day 1 · Mon</div>
+        <h3 class="tl__title">Kickoff call</h3>
+        <p class="tl__desc">60-min walkthrough of your business. We ask, you talk. No prep required.</p>
+      </div>
+      <div class="tl">
+        <div class="tl__dot">2</div>
+        <div class="tl__day">Days 2–4</div>
+        <h3 class="tl__title">We do the work</h3>
+        <p class="tl__desc">Call logs, CRM, QuickBooks, estimates. We pull it apart. You stay on the job.</p>
+      </div>
+      <div class="tl">
+        <div class="tl__dot">3</div>
+        <div class="tl__day">Day 5 · Fri</div>
+        <h3 class="tl__title">Leak report</h3>
+        <p class="tl__desc">Dollar amount per leak. Root cause. Build proposal if you want it.</p>
+      </div>
+      <div class="tl">
+        <div class="tl__dot">4</div>
+        <div class="tl__day">Day 7 · Mon</div>
+        <h3 class="tl__title">Walkthrough</h3>
+        <p class="tl__desc">60-min review call. We answer questions. You decide what's next. No pitch.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--cream">
+  <div class="container">
+    <div class="sec-overline">Deliverable</div>
+    <h2 class="sec-title">You get a one-page leak report. In dollars.</h2>
+    <p class="sec-sub">No pitch deck. No 40-slide strategy doc. One page that says exactly what's falling through the cracks.</p>
+    <div class="deliv">
+      <div>
+        <h3>Plain English. Dollar amounts. That's the whole thing.</h3>
+        <p>If we can't name a number, we don't list it. Every finding has a monthly cost, a root cause, and a build option with its own recovery estimate.</p>
+        <p>It's yours whether you hire us for the build or not.</p>
+      </div>
+      <div class="deliv__mock">
+        <h4>Leak Report <small>Plumbing · $1.4M</small></h4>
+        <div class="deliv__row"><span class="deliv__row__label">Missed calls after 5pm</span><span class="deliv__row__amt">$3,200/mo</span></div>
+        <div class="deliv__row"><span class="deliv__row__label">Cold estimates (14+ days)</span><span class="deliv__row__amt">$4,100/mo</span></div>
+        <div class="deliv__row"><span class="deliv__row__label">Rescheduled jobs</span><span class="deliv__row__amt">$1,100/mo</span></div>
+        <div class="deliv__total">
+          <span class="deliv__total__lbl">Total monthly leak</span>
+          <span class="deliv__total__amt">$8,400</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="container container--narrow">
+    <div class="guarantee">
+      <div class="guarantee__icon">$</div>
+      <div class="guarantee__text">
+        <h4>If we can't find at least $5,000/mo leaking, you don't pay.</h4>
+        <p>We've never failed to find it. But if your operation is somehow already airtight, we eat the audit and tell you so.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--cream">
+  <div class="container container--narrow">
+    <div class="sec-overline">Questions</div>
+    <h2 class="sec-title">Things people ask before they book.</h2>
+    <div class="faq" style="margin-top: 32px;">
+      <details>
+        <summary>I already use ServiceTitan / Jobber / Housecall Pro. Is this redundant?</summary>
+        <p>No. Those are tools. This is a read on how your tools are actually being used, where they're letting leads slip, and what you could automate on top of them. We work inside whatever stack you already have.</p>
+      </details>
+      <details>
+        <summary>Why paid? Everyone else runs free audits.</summary>
+        <p>Because free audits are sales calls in a trench coat. A paid audit means we spend the week actually doing work for you, not pitching you. You get a real deliverable whether you hire us after or not.</p>
+      </details>
+      <details>
+        <summary>What if you don't find anything?</summary>
+        <p>If we can't identify at least $5,000/month in recoverable leaks, the audit is free. We've never had that happen, but the offer stands.</p>
+      </details>
+      <details>
+        <summary>Do I have to commit to a retainer after?</summary>
+        <p>No. About half of audit clients hire us to build and run the fix. The other half take the report and run it themselves. Both are fine. The audit fee gets credited to month one if you do retain us.</p>
+      </details>
+      <details>
+        <summary>How much of my time does this take?</summary>
+        <p>Roughly three hours over the week: a 60-min kickoff, ~30 min of pulling data access, and a 60-min walkthrough at the end. The rest is us, in our office, not yours.</p>
+      </details>
+      <details>
+        <summary>Who sees my numbers?</summary>
+        <p>Two people on our team. NDA on request, automatic if you're in a sensitive vertical. We don't publish financials, ever. Case studies run anonymous unless you volunteer.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--navy" style="text-align:center;">
+  <div class="container">
+    <div class="sec-overline" style="color: var(--cs-gold);">Last thing</div>
+    <h2 class="sec-title" style="margin-left: auto; margin-right: auto;">You already suspect where the leaks are.</h2>
+    <p class="sec-sub" style="margin-left: auto; margin-right: auto; text-align: center;">This is what it costs to stop guessing and start knowing.</p>
+    <button class="btn btn--primary" onclick="book()">Book the Ops Audit <span style="font-size:18px;line-height:1">→</span></button>
+  </div>
+</section>
+
+<div id="footer-slot"></div>
+
+<script src="/_chrome.js"></script>
+<script>renderChrome('audit');</script>
+</body>
+</html>

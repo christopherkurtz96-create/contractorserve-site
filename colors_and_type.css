@@ -1,0 +1,212 @@
+/* ==========================================================================
+   ContractorServe Design System — Core Tokens
+   Colors + Type + Spacing + Radii + Shadows
+   Source of truth: ContractorServe_StyleGuide_v2.pdf (April 2026)
+   ========================================================================== */
+
+/* Google Fonts — loaded via README index.html / any consuming file.
+   Archivo Black is LOCKED to the logo wordmark only — never used for UI. */
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+  /* ---------- PRIMARY COLORS ---------- */
+  --cs-navy:         #1B2A4A;  /* Dominant. Nav, footers, hero, headers, primary text on light */
+  --cs-gold:         #C8922A;  /* ACCENT ONLY. CTAs, dollar callouts, highlights. Never a fill. */
+
+  /* ---------- NEUTRALS / SURFACES ---------- */
+  --cs-navy-light:   #243556;  /* Hover states on navy, secondary nav */
+  --cs-gold-light:   #D4A84A;  /* Hover on gold CTAs */
+  --cs-cream:        #FAF8F5;  /* Section backgrounds, cards */
+  --cs-warm-white:   #FDFCFA;  /* Page background. NEVER pure white. */
+  --cs-stone:        #E8E4DD;  /* Borders, dividers, muted backgrounds */
+
+  /* ---------- TEXT ---------- */
+  --cs-text-dark:    #374151;  /* Body copy. NEVER pure black. */
+  --cs-text-light:   #6B7280;  /* Secondary text, captions */
+  --cs-text-muted:   #9CA3AF;  /* Timestamps, footnotes, disclaimers */
+
+  /* ---------- SEMANTIC (reports, dashboards — NOT decorative) ---------- */
+  --cs-success:      #16A34A;  /* Recovered revenue, positive results */
+  --cs-warning:      #F59E0B;  /* At-risk, caution */
+  --cs-danger:       #DC2626;  /* Leaks, critical issues, "without ContractorServe" */
+  --cs-info:         #2563EB;  /* Informational, neutral callouts */
+
+  /* ---------- SEMANTIC ALIASES (foreground / background) ---------- */
+  --fg-1:            var(--cs-navy);        /* Primary display text on light */
+  --fg-2:            var(--cs-text-dark);   /* Body */
+  --fg-3:            var(--cs-text-light);  /* Secondary */
+  --fg-4:            var(--cs-text-muted);  /* Tertiary */
+  --fg-accent:       var(--cs-gold);
+  --fg-on-navy:      #FFFFFF;               /* White is OK as a foreground on navy */
+
+  --bg-page:         var(--cs-warm-white);
+  --bg-section:      var(--cs-cream);
+  --bg-card:         #FFFFFF;               /* Cards may be true white for contrast on cream */
+  --bg-navy:         var(--cs-navy);
+  --bg-muted:        var(--cs-stone);
+
+  --border:          var(--cs-stone);
+  --border-strong:   #D6D1C8;
+
+  /* ---------- TYPE FAMILIES ---------- */
+  --font-logo:       'Archivo Black', 'Arial Black', sans-serif; /* LOGO LOCKUP ONLY */
+  --font-display:    'Space Grotesk', 'Inter', system-ui, sans-serif;
+  --font-body:       'DM Sans', 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono:       ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+  /* ---------- TYPE SCALE (desktop defaults) ---------- */
+  --fs-hero:         clamp(48px, 6vw, 80px);   /* Hero headline */
+  --fs-page-title:   clamp(36px, 4vw, 56px);   /* Page title */
+  --fs-section:      clamp(28px, 3vw, 40px);   /* Section title */
+  --fs-card-title:   22px;                     /* Card title */
+  --fs-body-lg:      19px;                     /* Intro / lead copy */
+  --fs-body:         16px;                     /* Default body */
+  --fs-small:        14px;                     /* Caption */
+  --fs-label:        12px;                     /* Overline / label */
+  --fs-dollar:       clamp(56px, 7vw, 72px);   /* Leak / recovery callout numbers */
+
+  /* ---------- LINE HEIGHTS ---------- */
+  --lh-tight:        1.05;   /* Hero */
+  --lh-display:      1.12;   /* Titles */
+  --lh-body:         1.6;    /* Body */
+  --lh-loose:        1.7;    /* Long-form */
+
+  /* ---------- LETTER SPACING ---------- */
+  --tracking-display: -0.02em;
+  --tracking-title:   -0.01em;
+  --tracking-body:    0;
+  --tracking-label:   0.12em;  /* UPPERCASE labels / overlines */
+
+  /* ---------- SPACING ---------- */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  24px;
+  --space-6:  32px;
+  --space-7:  40px;
+  --space-8:  48px;
+  --space-9:  64px;
+  --space-10: 80px;
+
+  /* Layout */
+  --content-max:     1100px;  /* Default max width */
+  --content-text:    900px;   /* Text-heavy */
+  --content-read:    700px;   /* Long-form reading */
+  --section-pad-y:   80px;    /* Desktop */
+  --section-pad-y-m: 48px;    /* Mobile */
+  --section-pad-x:   24px;
+  --card-gap:        24px;
+  --component-gap:   48px;
+
+  /* ---------- RADII ---------- */
+  --radius-sm:   6px;   /* Small surfaces */
+  --radius-btn:  8px;   /* Buttons */
+  --radius-md:   12px;  /* Cards */
+  --radius-lg:   16px;  /* Large containers */
+
+  /* ---------- SHADOWS ---------- */
+  /* Minimal, no cinematic blurs. Use navy-tinted at low opacity. */
+  --shadow-sm:  0 1px 2px rgba(27, 42, 74, 0.06);
+  --shadow-md:  0 4px 12px rgba(27, 42, 74, 0.08);
+  --shadow-lg:  0 12px 32px rgba(27, 42, 74, 0.12);
+  --shadow-cta: 0 2px 0 rgba(27, 42, 74, 0.08);  /* Flat press-style for gold CTAs */
+
+  /* ---------- MOTION ---------- */
+  --ease-out:    cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast:    120ms;
+  --dur-base:    180ms;
+  --dur-slow:    280ms;
+}
+
+/* ==========================================================================
+   BASE ELEMENT STYLES — opt-in by adding `class="cs"` to a root element
+   ========================================================================== */
+
+.cs, .cs * { box-sizing: border-box; }
+
+.cs {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--fg-2);
+  background: var(--bg-page);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings — Space Grotesk Bold. Sentence case, tight tracking. */
+.cs h1, .cs .h1,
+.cs h2, .cs .h2,
+.cs h3, .cs .h3,
+.cs h4, .cs .h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--fg-1);
+  letter-spacing: var(--tracking-display);
+  line-height: var(--lh-display);
+  margin: 0 0 var(--space-4);
+  text-wrap: balance;
+}
+
+.cs h1, .cs .h1 { font-size: var(--fs-hero); line-height: var(--lh-tight); }
+.cs h2, .cs .h2 { font-size: var(--fs-page-title); }
+.cs h3, .cs .h3 { font-size: var(--fs-section); }
+.cs h4, .cs .h4 { font-size: var(--fs-card-title); letter-spacing: var(--tracking-title); }
+
+.cs p { margin: 0 0 var(--space-4); text-wrap: pretty; }
+.cs .body-lg { font-size: var(--fs-body-lg); line-height: var(--lh-loose); }
+.cs .body    { font-size: var(--fs-body); }
+.cs .small   { font-size: var(--fs-small); color: var(--fg-3); }
+.cs .muted   { color: var(--fg-4); }
+
+/* Overline / label — UPPERCASE, letter-spaced, DM Sans 600 */
+.cs .label, .cs .overline {
+  font-family: var(--font-body);
+  font-size: var(--fs-label);
+  font-weight: 600;
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--fg-3);
+}
+
+/* Dollar callout — the signature v2 typographic role */
+.cs .dollar {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-dollar);
+  line-height: 1;
+  letter-spacing: var(--tracking-display);
+  color: var(--fg-1);
+  font-variant-numeric: tabular-nums;
+}
+.cs .dollar--leak     { color: var(--cs-danger); }
+.cs .dollar--recovery { color: var(--cs-success); }
+.cs .dollar--gold     { color: var(--cs-gold); }
+
+/* Links */
+.cs a {
+  color: var(--cs-navy);
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+.cs a:hover { color: var(--cs-gold); }
+
+/* Selection */
+.cs ::selection { background: var(--cs-gold); color: var(--cs-navy); }
+
+/* ==========================================================================
+   REUSABLE UTILITY CLASSES
+   ========================================================================== */
+
+.cs-container       { max-width: var(--content-max); margin: 0 auto; padding: 0 var(--section-pad-x); }
+.cs-container--text { max-width: var(--content-text); margin: 0 auto; padding: 0 var(--section-pad-x); }
+.cs-container--read { max-width: var(--content-read); margin: 0 auto; padding: 0 var(--section-pad-x); }
+
+.cs-section       { padding: var(--section-pad-y) 0; }
+.cs-section--navy { background: var(--bg-navy); color: var(--fg-on-navy); }
+.cs-section--navy h1, .cs-section--navy h2, .cs-section--navy h3, .cs-section--navy h4 { color: var(--fg-on-navy); }
+.cs-section--cream { background: var(--bg-section); }

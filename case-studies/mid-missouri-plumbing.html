@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>$8,400/month hiding in voicemail — case study</title>
+<meta name="description" content="How a six-person Mid-Missouri plumbing contractor stopped losing jobs to missed calls in four weeks, without hiring a receptionist or buying new software.">
+<link rel="canonical" href="https://contractorserve.com/case-studies/mid-missouri-plumbing.html">
+
+<link rel="icon" type="image/svg+xml" href="/assets/logo-icon-gold.svg">
+<link rel="apple-touch-icon" href="/assets/logo-icon-gold.png">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="$8,400/month hiding in voicemail — case study">
+<meta property="og:description" content="How a six-person Mid-Missouri plumbing contractor stopped losing jobs to missed calls in four weeks, without hiring a receptionist or buying new software.">
+<meta property="og:url" content="https://contractorserve.com/case-studies/mid-missouri-plumbing.html">
+<meta property="og:image" content="https://contractorserve.com/assets/og-default.png">
+<meta property="og:site_name" content="ContractorServe">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="$8,400/month hiding in voicemail — case study">
+<meta name="twitter:description" content="How a six-person Mid-Missouri plumbing contractor stopped losing jobs to missed calls in four weeks, without hiring a receptionist or buying new software.">
+<meta name="twitter:image" content="https://contractorserve.com/assets/og-default.png">
+
+<meta name="theme-color" content="#1B2A4A">
+
+<link rel="stylesheet" href="/colors_and_type.css">
+<link rel="stylesheet" href="/_shared.css">
+<style>
+  .case-hero__inner { max-width: 900px; margin: 0 auto; }
+  .case-hero__meta { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 20px; }
+  .case-hero__chip { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; background: rgba(200,146,42,0.15); border: 1px solid rgba(200,146,42,0.3); color: var(--cs-gold-light); border-radius: 999px; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; }
+  .case-hero h1 { font-family: var(--font-display); font-weight: 700; font-size: clamp(36px, 4.6vw, 52px); line-height: 1.08; letter-spacing: -0.02em; margin: 0 0 22px; color: #fff; text-wrap: balance; }
+  .case-hero__sub { font-size: 18px; line-height: 1.65; color: rgba(255,255,255,0.82); margin: 0 0 36px; max-width: 720px; }
+  .case-hero__stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; padding-top: 28px; border-top: 1px solid rgba(255,255,255,0.12); }
+  .chs__lbl { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 8px; }
+  .chs__val { font-family: var(--font-display); font-weight: 700; font-size: 40px; line-height: 1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; color: #fff; }
+  .chs__val--leak { color: #F87171; }
+  .chs__val--rec { color: #4ADE80; }
+  .chs__sub { font-size: 12px; color: rgba(255,255,255,0.55); margin-top: 6px; }
+
+  .cbar { background: #fff; border-bottom: 1px solid var(--cs-stone); padding: 20px 24px; }
+  .cbar__inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .cbar__item { font-size: 13px; }
+  .cbar__lbl { font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cs-text-light); margin-bottom: 4px; }
+  .cbar__val { color: var(--cs-navy); font-weight: 600; }
+
+  .narrative { max-width: 720px; margin: 0 auto; }
+  .narrative h2 { font-family: var(--font-display); font-weight: 700; font-size: 28px; line-height: 1.2; letter-spacing: -0.02em; color: var(--cs-navy); margin: 48px 0 16px; text-wrap: balance; }
+  .narrative h2:first-child { margin-top: 0; }
+  .narrative p { font-size: 17px; line-height: 1.75; color: var(--cs-text-dark); margin: 0 0 20px; }
+
+  .leaks { background: #fff; border: 1px solid var(--cs-stone); border-radius: 12px; overflow: hidden; margin: 28px 0; }
+  .leaks__head { background: var(--cs-cream); padding: 14px 20px; font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cs-text-light); display: grid; grid-template-columns: 1fr auto; gap: 16px; }
+  .leaks__row { padding: 16px 20px; display: grid; grid-template-columns: 1fr auto; gap: 16px; border-top: 1px solid var(--cs-stone); align-items: center; }
+  .leaks__label { font-size: 15px; color: var(--cs-text-dark); line-height: 1.4; }
+  .leaks__amt { font-family: var(--font-display); font-weight: 700; font-size: 20px; color: var(--cs-danger); font-variant-numeric: tabular-nums; }
+  .leaks__total { padding: 18px 20px; border-top: 2px solid var(--cs-navy); background: var(--cs-cream); display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: baseline; }
+  .leaks__total__lbl { font-family: var(--font-display); font-weight: 700; font-size: 16px; color: var(--cs-navy); letter-spacing: -0.01em; }
+  .leaks__total__amt { font-family: var(--font-display); font-weight: 700; font-size: 28px; color: var(--cs-danger); font-variant-numeric: tabular-nums; }
+
+  .build { margin: 28px 0; }
+  .buildrow { display: grid; grid-template-columns: auto 1fr; gap: 18px; padding: 20px 0; border-bottom: 1px solid var(--cs-stone); }
+  .buildrow:last-child { border-bottom: none; }
+  .buildrow__dot { width: 32px; height: 32px; border-radius: 50%; background: var(--cs-navy); color: var(--cs-gold); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 700; font-size: 13px; flex-shrink: 0; }
+  .buildrow__title { font-family: var(--font-display); font-weight: 700; font-size: 17px; color: var(--cs-navy); margin: 4px 0 6px; letter-spacing: -0.01em; }
+  .buildrow__desc { font-size: 15px; line-height: 1.6; color: var(--cs-text-dark); margin: 0 0 8px; }
+  .buildrow__tool { font-size: 12px; color: var(--cs-text-light); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; }
+
+  .recovery { background: var(--cs-cream); border-left: 4px solid var(--cs-success); border-radius: 10px; padding: 28px 32px; margin: 28px 0; }
+  .recovery__lbl { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cs-success); margin-bottom: 10px; }
+  .recovery__amt { font-family: var(--font-display); font-weight: 700; font-size: 52px; line-height: 1; letter-spacing: -0.02em; color: var(--cs-success); font-variant-numeric: tabular-nums; margin-bottom: 10px; }
+  .recovery__desc { font-size: 15px; line-height: 1.5; color: var(--cs-text-dark); margin: 0; }
+
+  .pull { margin: 56px 0; padding: 40px; background: var(--cs-navy); color: #fff; border-radius: 16px; }
+  .pull__quote { font-family: var(--font-display); font-weight: 700; font-size: 26px; line-height: 1.35; letter-spacing: -0.01em; color: #fff; margin: 0 0 24px; text-wrap: balance; }
+  .pull__quote::before { content: '"'; display: block; font-size: 80px; line-height: 0.4; color: var(--cs-gold); margin-bottom: 16px; }
+  .pull__attr strong { display: block; font-size: 15px; color: #fff; font-weight: 600; margin-bottom: 2px; }
+  .pull__attr span { font-size: 13px; color: rgba(255,255,255,0.65); }
+
+  .note { background: var(--cs-cream); border: 1px solid var(--cs-stone); border-radius: 10px; padding: 16px 20px; margin: 48px 0 0; font-size: 13px; color: var(--cs-text-light); line-height: 1.5; }
+
+  @media (max-width: 900px) {
+    .case-hero__stats, .cbar__inner { grid-template-columns: 1fr; }
+    .cbar__inner { gap: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<div id="nav-slot"></div>
+
+<section class="hero">
+  <div class="case-hero__inner">
+    <div class="case-hero__meta">
+      <span class="case-hero__chip">Plumbing</span>
+      <span class="case-hero__chip">$1.4M revenue</span>
+      <span class="case-hero__chip">Mid-Missouri</span>
+    </div>
+    <h1>The $8,400/month that was hiding in voicemail.</h1>
+    <p class="case-hero__sub">How a six-person plumbing contractor stopped losing jobs to missed calls in the first four weeks — without hiring a receptionist, buying new software, or learning anything new.</p>
+    <div class="case-hero__stats">
+      <div>
+        <div class="chs__lbl">Leak found</div>
+        <div class="chs__val chs__val--leak">$8,400<span style="font-size:18px;color:rgba(255,255,255,0.6);font-weight:500;">/mo</span></div>
+        <div class="chs__sub">Across 3 line items</div>
+      </div>
+      <div>
+        <div class="chs__lbl">Time to recovery</div>
+        <div class="chs__val">4 wks</div>
+        <div class="chs__sub">From audit to first dollar</div>
+      </div>
+      <div>
+        <div class="chs__lbl">Owner hours</div>
+        <div class="chs__val chs__val--rec">0<span style="font-size:18px;color:rgba(255,255,255,0.6);font-weight:500;">/wk</span></div>
+        <div class="chs__sub">Ongoing management</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cbar">
+  <div class="cbar__inner">
+    <div class="cbar__item"><div class="cbar__lbl">Industry</div><div class="cbar__val">Residential plumbing</div></div>
+    <div class="cbar__item"><div class="cbar__lbl">Revenue</div><div class="cbar__val">$1.4M annual</div></div>
+    <div class="cbar__item"><div class="cbar__lbl">Team</div><div class="cbar__val">6 techs · 1 owner</div></div>
+    <div class="cbar__item"><div class="cbar__lbl">Stack</div><div class="cbar__val">Jobber · QuickBooks</div></div>
+  </div>
+</div>
+
+<section class="sec">
+  <div class="container">
+    <div class="narrative">
+
+      <h2>The situation</h2>
+      <p>The owner — we'll call him Mike — had been running the business for eleven years. Six techs, one truck each, steady residential work in the Columbia area. Revenue was flat at $1.4M for three years running, and he'd started to notice something: he was losing jobs he used to win. Regular customers were calling the big national brand instead. New leads weren't converting like they used to.</p>
+      <p>He assumed he had a marketing problem. He didn't. He had a phone problem.</p>
+
+      <h2>What we found</h2>
+      <p>Mike's answering service kicked in after four rings. Calls between 5pm and 7am went to voicemail. Voicemails were checked once the next morning — if the dispatcher remembered. Estimates sent out on Tuesday were forgotten by Friday unless the customer called back. Nothing was nefarious. It was just the normal entropy of a small business where everyone's already doing the job of 1.5 people.</p>
+
+      <div class="leaks">
+        <div class="leaks__head">
+          <span>Leak</span>
+          <span>Monthly cost</span>
+        </div>
+        <div class="leaks__row">
+          <div class="leaks__label">Missed calls after 5pm and before 7am (avg 47/mo, ~28% booking rate)</div>
+          <div class="leaks__amt">$3,200</div>
+        </div>
+        <div class="leaks__row">
+          <div class="leaks__label">Estimates sent and never followed up (14+ days cold, avg 11/mo)</div>
+          <div class="leaks__amt">$4,100</div>
+        </div>
+        <div class="leaks__row">
+          <div class="leaks__label">Rescheduled jobs drifting out of the week they were booked for</div>
+          <div class="leaks__amt">$1,100</div>
+        </div>
+        <div class="leaks__total">
+          <div class="leaks__total__lbl">Total monthly leak</div>
+          <div class="leaks__total__amt">$8,400</div>
+        </div>
+      </div>
+
+      <p>The worst part: Mike had suspected most of this. He just didn't have a number.</p>
+
+      <h2>What we built</h2>
+      <p>Nothing new for Mike to learn. No dashboard, no training. We worked inside the stack he already had — Jobber for scheduling, QuickBooks for money — and wrapped automation around the gaps.</p>
+
+      <div class="build">
+        <div class="buildrow">
+          <div class="buildrow__dot">1</div>
+          <div>
+            <h3 class="buildrow__title">AI after-hours answering</h3>
+            <p class="buildrow__desc">A voice agent picks up any call outside business hours, qualifies the job, books straight into Jobber. Hands off to a human on emergency keywords.</p>
+            <div class="buildrow__tool">Built on · existing Jobber API</div>
+          </div>
+        </div>
+        <div class="buildrow">
+          <div class="buildrow__dot">2</div>
+          <div>
+            <h3 class="buildrow__title">Estimate follow-up automation</h3>
+            <p class="buildrow__desc">Every estimate triggers a 3-touch cadence over 10 days — SMS, email, call. Customer replies cut the cadence. Closed-won auto-tags the record.</p>
+            <div class="buildrow__tool">Built on · Jobber + Twilio</div>
+          </div>
+        </div>
+        <div class="buildrow">
+          <div class="buildrow__dot">3</div>
+          <div>
+            <h3 class="buildrow__title">Schedule-drift alerts</h3>
+            <p class="buildrow__desc">Any booked job that slips past its original week pings the dispatcher with context. Most were getting buried under emergency add-ons.</p>
+            <div class="buildrow__tool">Built on · internal rule engine</div>
+          </div>
+        </div>
+      </div>
+
+      <h2>What happened</h2>
+      <p>Week one of month two: the AI agent booked seven calls that would have gone to voicemail. Week three: two estimates from the prior month that had gone cold came back as signed jobs — both said the follow-up was the reason. By the end of month one, Mike was break-even on the retainer. Month two was pure upside.</p>
+
+      <div class="recovery">
+        <div class="recovery__lbl">Recovered, month two</div>
+        <div class="recovery__amt">$8,400<span style="font-size:20px;color:var(--cs-text-light);font-weight:500;">/mo</span></div>
+        <p class="recovery__desc">Full leak closed by week four. Month three tracked at $9,100 recovered as the follow-up cadence matured. Owner time spent managing the build: zero.</p>
+      </div>
+
+      <div class="pull">
+        <div class="pull__quote">They found $8,400 a month I didn't know I was losing. Month one I was breaking even on the retainer. Month two it was pure upside. And I didn't have to learn a single new piece of software.</div>
+        <div class="pull__attr">
+          <strong>"Mike"</strong>
+          <span>Owner · Mid-Missouri plumbing contractor · $1.4M</span>
+        </div>
+      </div>
+
+      <h2>What's next</h2>
+      <p>Mike renewed the retainer for month six. We're now looking at the owner-bottleneck column: the dozen decisions a day that only he can make. That'll be the next case study.</p>
+
+      <div class="note">Names and a few identifying details have been changed. Dollar amounts, timelines, and the build are as they actually happened.</div>
+
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--navy" style="text-align: center;">
+  <div class="container">
+    <div class="sec-overline" style="color: var(--cs-gold);">Your turn</div>
+    <h2 class="sec-title" style="margin: 0 auto 16px;">What's your number?</h2>
+    <p class="sec-sub" style="margin: 0 auto 32px; text-align: center;">One paid audit. One week. Every leak in your business, named in dollars.</p>
+    <button class="btn btn--primary" onclick="book()">Book the Ops Audit <span style="font-size:18px;line-height:1">→</span></button>
+  </div>
+</section>
+
+<div id="footer-slot"></div>
+
+<script src="/_chrome.js"></script>
+<script>renderChrome(null);</script>
+</body>
+</html>
