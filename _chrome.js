@@ -14,7 +14,7 @@
       <nav class="nav">
         <div class="nav__inner">
           <div class="nav__left">
-            <a href="/"><img class="nav__logo" src="/assets/logo-wordmark-cream.svg" alt="ContractorServe"></a>
+            <a href="/"><img class="nav__logo" src="/assets/logo-icon-gold.svg" alt="ContractorServe"></a>
             <div class="nav__links">${linkHTML}</div>
           </div>
           <button class="btn btn--primary" onclick="book()">Book the Ops Audit</button>
